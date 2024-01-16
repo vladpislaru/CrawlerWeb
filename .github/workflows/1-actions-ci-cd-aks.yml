@@ -20,7 +20,6 @@ jobs:
       IMAGE_BACKEND: backend
       IMAGE_FRONTEND: frontend
       IMAGE_TAG: ${{ github.run_number }} # $GITHUB_RUN_NUMBER
-      
       CLUSTER_NAME: aks-cluster
       RESOURSE_GROUP: rg-aks-cluster
     

@@ -1,5 +1,6 @@
 import axios from 'axios';
 
 export default axios.create({
-    baseURL: process.env.SERVICE_URL,
+    baseURL: 'http://localhost:30080',
+    
 })
