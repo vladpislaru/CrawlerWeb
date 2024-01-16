@@ -1,0 +1,17 @@
+replicaCount: 1
+revisionHistoryLimit: 1
+backend:
+  image:
+    repository: houssemdocker/backend
+    tag: 1
+    pullPolicy: IfNotPresent
+  type: NodePort
+  servicePort: 30080
+frontend:
+  image:
+      repository: houssemdocker/frontend
+      tag: 1
+      pullPolicy: IfNotPresent
+  type: NodePort
+  servicePort: 30300
+

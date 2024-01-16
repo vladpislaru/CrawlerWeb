@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  labels:
+    chart: backend
+spec:
+  selector:
+    matchLabels:
+      app: "backend-selector"
+  template:
+    metadata:
+      labels:
+        app: "backend-selector"
+    spec:
+      containers:
+      - name: backend
+        image: "{{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag }}"
+        imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
+        livenessProbe:
+          exec:
+            command: 
+            - ls
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        ports:
+        - containerPort: {{ .Values.backend.servicePort}}
